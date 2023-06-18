@@ -10,7 +10,7 @@ public class Task {
     private String taskName;
     private String taskDescription;
     private String category;
-    private String priority;
+    private Priority priority;
     private LocalDateTime taskStartTime;
     private LocalDateTime taskEndTime;
     private LocalDateTime taskDueTime;
@@ -47,11 +47,11 @@ public class Task {
         this.category = category;
     }
 
-    public String getPriority() {
+    public Priority getPriority() {
         return priority;
     }
 
-    public void setPriority(String priority) {
+    public void setPriority(Priority priority) {
         this.priority = priority;
     }
 
