@@ -9,7 +9,7 @@ public class Task {
     private UUID uuid;
     private String taskName;
     private String taskDescription;
-    private String category;
+    private Category category;
     private Priority priority;
     private LocalDateTime taskStartTime;
     private LocalDateTime taskEndTime;
@@ -39,11 +39,11 @@ public class Task {
         this.taskDescription = taskDescription;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
