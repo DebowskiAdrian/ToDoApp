@@ -1,19 +1,20 @@
 package com.aivid.todo.service;
 
+import com.aivid.todo.model.Task;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
 
-@ExtendWith(MockitoExtension.class)
 class TaskServiceTest {
 
-
-
-
     @Test
-    @DisplayName("Test which verify if task is added correctly")
+    @DisplayName("Test which verify if task is added.")
     void addTask() {
+        // Given
+
+
+        // When
+
+        // Then
+
     }
 }
