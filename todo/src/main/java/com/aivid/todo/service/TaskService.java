@@ -14,7 +14,7 @@ public class TaskService {
     private List<Task> taskList = new ArrayList<Task>();
 
     public void addTask(Task task){
-
+        taskList.add(task);
     }
 
     public List<Task> getAllTasks(){

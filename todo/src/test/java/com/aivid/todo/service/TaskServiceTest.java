@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class TaskServiceTest {
@@ -27,9 +28,10 @@ class TaskServiceTest {
         TaskService taskService = new TaskService();
         // When
         taskService.addTask(taskDueTomorrow);
-        List<Task> retrieveTasks = taskService.getAllTasks();
+        Task retrieveTasks = taskService.getTaskById(taskDueTomorrow.getId());
         // Then
         assertNotNull(retrieveTasks);
+        assertEquals(taskDueTomorrow, retrieveTasks);
 
     }
 }
