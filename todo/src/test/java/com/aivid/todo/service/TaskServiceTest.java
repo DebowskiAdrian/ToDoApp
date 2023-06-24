@@ -73,4 +73,12 @@ class TaskServiceTest {
         assertEquals(taskDueMonth, retrieveTaskById);
 
     }
+
+    @Test
+    void removeTaskById() {
+    }
+
+    @Test
+    void editTaskById() {
+    }
 }

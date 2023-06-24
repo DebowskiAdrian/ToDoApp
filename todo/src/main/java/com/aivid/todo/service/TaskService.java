@@ -28,5 +28,12 @@ public class TaskService {
                 .orElseThrow(() -> new TaskNotFoundException("Not found task with ID: %s".formatted(uuid)));
     }
 
+    public void removeTaskById(UUID uuid){
+
+    }
+
+    public void editTaskById(UUID uuid){
+
+    }
 
 }
