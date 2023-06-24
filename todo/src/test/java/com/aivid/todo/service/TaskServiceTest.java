@@ -41,6 +41,7 @@ class TaskServiceTest {
     }
 
     @Test
+    @DisplayName("Test which verify if list of tasks are return.")
     void getAllTasks() {
         // Given
         taskService.addTask(taskDueTomorrow);
@@ -48,6 +49,7 @@ class TaskServiceTest {
         taskService.addTask(taskDueMonth);
 
         List<Task> testListOfTasks = List.of(taskDueTomorrow,taskDueTenDays,taskDueMonth);
+
         // When
         List<Task> retrieveAllTasks = taskService.getAllTasks();
 
@@ -58,10 +60,17 @@ class TaskServiceTest {
     }
 
     @Test
+    @DisplayName("Test which verify if task is return after providing id.")
     void getTaskById() {
+        // Given
+        taskService.addTask(taskDueMonth);
+
         // When
+        Task retrieveTaskById = taskService.getTaskById(taskDueMonth.getId());
 
         // Then
+        assertNotNull(retrieveTaskById);
+        assertEquals(taskDueMonth, retrieveTaskById);
 
     }
 }
