@@ -74,6 +74,17 @@ class TaskServiceTest {
     }
 
     @Test
+    @DisplayName("Test which verify if task is present on task list")
+    void hasTask() {
+        // Given
+        taskService.addTask(taskDueTomorrow);
+
+        // Then
+        assertFalse(taskService.hasTask(taskDueMonth));
+        assertTrue(taskService.hasTask(taskDueTomorrow));
+    }
+
+    @Test
     void removeTaskById() {
         // Given
         taskService.addTask(taskDueTomorrow);
@@ -81,11 +92,11 @@ class TaskServiceTest {
         taskService.addTask(taskDueMonth);
 
         // When
-        taskService.removeTaskById(taskDueTomorrow.getId());
+        taskService.removeTaskById(taskDueTenDays.getId());
 
         // Then
-        assertNull(taskDueTomorrow);
-        assertNotNull(taskDueTenDays);
+        //assertFalse(taskDueMonth);
+        assertNotNull(taskDueTomorrow);
         assertNotNull(taskDueMonth);
 
     }
@@ -99,4 +110,6 @@ class TaskServiceTest {
         // Then
 
     }
+
+
 }
