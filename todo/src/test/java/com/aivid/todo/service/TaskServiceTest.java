@@ -95,9 +95,9 @@ class TaskServiceTest {
         taskService.removeTaskById(taskDueTenDays.getId());
 
         // Then
-        //assertFalse(taskDueMonth);
-        assertNotNull(taskDueTomorrow);
-        assertNotNull(taskDueMonth);
+        assertFalse(taskService.hasTask(taskDueTenDays));
+        assertTrue(taskService.hasTask(taskDueTomorrow));
+        assertTrue(taskService.hasTask(taskDueMonth));
 
     }
 
