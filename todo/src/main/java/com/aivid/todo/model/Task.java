@@ -1,10 +1,17 @@
 package com.aivid.todo.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 import java.time.LocalDate;
 import java.util.Objects;
 import java.util.UUID;
-
+@Entity
 public class Task {
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     private String taskName;
     private String taskDescription;
@@ -12,6 +19,10 @@ public class Task {
     private Priority priority;
     private LocalDate taskStartTime;
     private LocalDate taskEndTime;
+
+    public Task(){
+
+    }
 
     public Task(UUID id, String taskName, String taskDescription, Category category, Priority priority, LocalDate taskStartTime, LocalDate taskEndTime) {
         this.id = id;
