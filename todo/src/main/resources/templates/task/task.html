@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>To Do App</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+</head>
+<body class="bg-light text-black">
+<nav th:fragment="navbar" class="navbar navbar-expand-md bg-info navbar-dark">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" th:href="@{/tasks}">ToDo Application</a>
+        </div>
+        <div class="d-flex justify-content-end">
+            <ul class="nav navbar-nav">
+                <li class="list-inline-item"><a class="nav-link" th:href="@{/tasks}">Home</a></li>
+
+                <li class="list-inline-item"><a class="nav-link" th:href="@{/tasks/create}">Add Task</a></li>
+
+                <li class="list-inline-item"><a class="nav-link" th:href="@{/tasks}">Display All Tasks</a></li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<div th:unless="${#lists.isEmpty(tasks)}">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th th:text="#{task.title}">Title</th>
+            <th th:text="#{task.description}">Description</th>
+            <th th:text="#{task.priority}">Priority</th>
+            <th th:text="#{task.category}">Category</th>
+            <th th:text="#{task.date}">Due Date</th>
+            <th th:text="#{gui.actions}">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="task,iterStat: ${tasks}">
+            <td th:text="${iterStat.count}"></td>
+            <td th:text="${task.title}"></td>
+            <td th:text="${task.description}"></td>
+            <td th:switch="${task.priority.name()}">
+                <p th:case="'URGENT'" th:text="#{priority.urgent}"></p>
+                <p th:case="'HIGH'" th:text="#{priority.high}"></p>
+                <p th:case="'MEDIUM'" th:text="#{priority.medium}"></p>
+                <p th:case="'MEDIUMLOW'" th:text="#{priority.mediumlow}"></p>
+                <p th:case="'LOW'" th:text="#{priority.low}"></p>
+            </td>
+            <td th:switch="${task.category.name()}">
+                <p th:case="'HOME'" th:text="#{category.home}"></p>
+                <p th:case="'WORK'" th:text="#{category.work}"></p>
+            </td>
+            <td th:text="${task.date}"></td>
+            <td>
+                <a th:href="@{/tasks/delete-task/{id}(id=${task.id})}" class="btn btn-danger">
+                    DELETE
+                </a>
+                <a th:href="@{/tasks/{taskId}(taskId=${task.id})}" class="btn btn-primary">
+                    EDIT
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="d-flex justify-content-center">
+    <a th:href="@{/tasks/create}" class="btn btn-success">
+        CREATE NEW TASK
+    </a>
+</div>
+<div class="fixed-bottom" th:insert="~{task/fragments/footer :: footer}"></div>
+</body>
+</html>
