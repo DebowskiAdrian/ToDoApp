@@ -11,4 +11,8 @@ public class Task {
     private String taskDescription;
     private LocalDate taskStart;
     private LocalDate taskEnd;
+    private LocalDate taskRealStart;
+    private LocalDate taskRealEnd;
+    private String taskOwner;
+    private Priority priority;
 }
