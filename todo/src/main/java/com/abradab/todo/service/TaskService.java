@@ -37,5 +37,10 @@ public class TaskService {
         taskToEdit.setTaskDescription(task.getTaskDescription());
         taskToEdit.setTaskStart(task.getTaskStart());
         taskToEdit.setTaskEnd(task.getTaskEnd());
+        taskToEdit.setTaskRealStart(task.getTaskRealStart());
+        taskToEdit.setTaskRealEnd(task.getTaskRealEnd());
+        taskToEdit.setTaskOwner(task.getTaskOwner());
+        taskToEdit.setPriority(task.getPriority());
+        taskToEdit.setCategory(task.getCategory());
     }
 }

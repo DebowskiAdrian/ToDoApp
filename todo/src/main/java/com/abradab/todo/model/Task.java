@@ -15,4 +15,5 @@ public class Task {
     private LocalDate taskRealEnd;
     private String taskOwner;
     private Priority priority;
+    private Category category;
 }
